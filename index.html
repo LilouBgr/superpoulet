@@ -353,6 +353,160 @@
 
                 init();
                 animate();
+          }
+
+            // ========== DEUXIÈME MODÈLE 3D: poussin.glb ==========
+            const containerPoussin = document.getElementById('three-model-container-poussin');
+            if (containerPoussin) {
+                const canvasPoussin = document.getElementById('three-canvas-poussin');
+                const modelPathPoussin = './images/poussin.glb'; 
+
+                let scenePoussin, cameraPoussin, rendererPoussin, modelPoussin;
+
+                function initPoussin() {
+                    scenePoussin = new THREE.Scene();
+                    scenePoussin.background = new THREE.Color(0xffffff);
+
+                    const fov = 75;
+                    const aspect = containerPoussin.clientWidth / containerPoussin.clientHeight;
+                    const near = 0.1;
+                    const far = 1000;
+                    cameraPoussin = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                    cameraPoussin.position.z = 3;
+
+                    rendererPoussin = new THREE.WebGLRenderer({ canvas: canvasPoussin, antialias: true, alpha: true });
+                    rendererPoussin.setSize(containerPoussin.clientWidth, containerPoussin.clientHeight);
+
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+                    scenePoussin.add(ambientLight);
+                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+                    directionalLight.position.set(0, 10, 5);
+                    scenePoussin.add(directionalLight);
+
+                    const loader = new THREE.GLTFLoader();
+                    loader.load(
+                        modelPathPoussin,
+                        (gltf) => {
+                            modelPoussin = gltf.scene;
+                            modelPoussin.scale.set(1.5, 1.5, 1.5);
+                            modelPoussin.position.set(0, -1, 0);
+                            scenePoussin.add(modelPoussin);
+                        },
+                        (xhr) => {
+                            if (xhr.total > 0) {
+                                console.log(`Chargement poussin.glb: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
+                            } else {
+                                console.log(`Chargement poussin.glb: ${xhr.loaded} octets chargés.`);
+                            }
+                        },
+                        (error) => {
+                            console.error('Erreur lors du chargement de poussin.glb:', error);
+                            containerPoussin.innerHTML = "Erreur de chargement du modèle 3D poussin.";
+                            containerPoussin.style.display = 'flex';
+                            containerPoussin.style.alignItems = 'center';
+                            containerPoussin.style.justifyContent = 'center';
+                        }
+                    );
+                }
+
+                function animatePoussin() {
+                    requestAnimationFrame(animatePoussin);
+
+                    if (modelPoussin) {
+                        modelPoussin.rotation.y += 0.01;
+                        modelPoussin.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+                    }
+
+                    rendererPoussin.render(scenePoussin, cameraPoussin);
+                }
+
+                window.addEventListener('resize', () => {
+                    if (containerPoussin) {
+                        cameraPoussin.aspect = containerPoussin.clientWidth / containerPoussin.clientHeight;
+                        cameraPoussin.updateProjectionMatrix();
+                        rendererPoussin.setSize(containerPoussin.clientWidth, containerPoussin.clientHeight);
+                    }
+                });
+
+                initPoussin();
+                animatePoussin();
+            }
+
+            // ========== TROISIÈME MODÈLE 3D: superpoulet.glb ==========
+            const containerSuperPoulet = document.getElementById('three-model-container-superpoulet');
+            if (containerSuperPoulet) {
+                const canvasSuperPoulet = document.getElementById('three-canvas-superpoulet');
+                const modelPathSuperPoulet = './images/superpoulet.glb'; 
+
+                let sceneSuperPoulet, cameraSuperPoulet, rendererSuperPoulet, modelSuperPoulet;
+
+                function initSuperPoulet() {
+                    sceneSuperPoulet = new THREE.Scene();
+                    sceneSuperPoulet.background = new THREE.Color(0xffffff);
+
+                    const fov = 75;
+                    const aspect = containerSuperPoulet.clientWidth / containerSuperPoulet.clientHeight;
+                    const near = 0.1;
+                    const far = 1000;
+                    cameraSuperPoulet = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                    cameraSuperPoulet.position.z = 3;
+
+                    rendererSuperPoulet = new THREE.WebGLRenderer({ canvas: canvasSuperPoulet, antialias: true, alpha: true });
+                    rendererSuperPoulet.setSize(containerSuperPoulet.clientWidth, containerSuperPoulet.clientHeight);
+
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+                    sceneSuperPoulet.add(ambientLight);
+                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+                    directionalLight.position.set(0, 10, 5);
+                    sceneSuperPoulet.add(directionalLight);
+
+                    const loader = new THREE.GLTFLoader();
+                    loader.load(
+                        modelPathSuperPoulet,
+                        (gltf) => {
+                            modelSuperPoulet = gltf.scene;
+                            modelSuperPoulet.scale.set(1.5, 1.5, 1.5);
+                            modelSuperPoulet.position.set(0, -1, 0);
+                            sceneSuperPoulet.add(modelSuperPoulet);
+                        },
+                        (xhr) => {
+                            if (xhr.total > 0) {
+                                console.log(`Chargement superpoulet.glb: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
+                            } else {
+                                console.log(`Chargement superpoulet.glb: ${xhr.loaded} octets chargés.`);
+                            }
+                        },
+                        (error) => {
+                            console.error('Erreur lors du chargement de superpoulet.glb:', error);
+                            containerSuperPoulet.innerHTML = "Erreur de chargement du modèle 3D superpoulet.";
+                            containerSuperPoulet.style.display = 'flex';
+                            containerSuperPoulet.style.alignItems = 'center';
+                            containerSuperPoulet.style.justifyContent = 'center';
+                        }
+                    );
+                }
+
+                function animateSuperPoulet() {
+                    requestAnimationFrame(animateSuperPoulet);
+
+                    if (modelSuperPoulet) {
+                        modelSuperPoulet.rotation.y += 0.01;
+                        modelSuperPoulet.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+                    }
+
+                    rendererSuperPoulet.render(sceneSuperPoulet, cameraSuperPoulet);
+                }
+
+                window.addEventListener('resize', () => {
+                    if (containerSuperPoulet) {
+                        cameraSuperPoulet.aspect = containerSuperPoulet.clientWidth / containerSuperPoulet.clientHeight;
+                        cameraSuperPoulet.updateProjectionMatrix();
+                        rendererSuperPoulet.setSize(containerSuperPoulet.clientWidth, containerSuperPoulet.clientHeight);
+                    }
+                });
+
+                initSuperPoulet();
+                animateSuperPoulet();
             }
         }
     </script>
