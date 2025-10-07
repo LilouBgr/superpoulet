@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Inclusion des bibliothèques Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
 
@@ -42,26 +42,32 @@
                 </div>
             </div>
             <div class="hero-image">
+                <!-- CORRECTION: Utilisation de slashes (/) pour la compatibilité web -->
                 <img src="./images/super_poulet_3d.jpg" alt="Personnage principal Super Poulet">
             </div>
         </div>
         
+        <!-- Les 3 skins restent ici pour être dans la Hero Section -->
         <img src="./images/super_poulet_pixel_1.png" alt="Personnage Poulet Classique" class="animated-pixel-char char-1">
         <img src="./images/super_poulet_pixel_2.png" alt="Personnage Poussin" class="animated-pixel-char char-2">
         <img src="./images/super_poulet_pixel_3.png" alt="Personnage Chevalier" class="animated-pixel-char char-3">
     </section>
 
+    <!-- !!! LE RENARD ET LES OEUFS SONT PLACÉS ICI POUR SE DÉPLACER PARTOUT !!! -->
     <img src="./images/renard_poursuivant.png" alt="Le Renard Poursuivant" class="animated-pixel-char char-fox">
     
+    <!-- SIX OEUFS POINTANT VERS LA MÊME IMAGE -->
     <img src="./images/oeuf_super_poulet.png" alt="Oeuf #1" class="animated-egg egg-1">
     <img src="./images/oeuf_super_poulet.png" alt="Oeuf #2" class="animated-egg egg-2">
     <img src="./images/oeuf_super_poulet.png" alt="Oeuf #3" class="animated-egg egg-3">
     <img src="./images/oeuf_super_poulet.png" alt="Oeuf #4" class="animated-egg egg-4">
     <img src="./images/oeuf_super_poulet.png" alt="Oeuf #5" class="animated-egg egg-5">
     <img src="./images/oeuf_super_poulet.png" alt="Oeuf #6" class="animated-egg egg-6">
+    <!-- !!! FIN DU DÉPLACEMENT !!! -->
 
     <main class="container">
         
+        <!-- 5) Teaser vidéo (DÉPLACÉE EN PREMIER) -->
         <section id="teaser" class="content-section grey-bg">
             <h3 class="section-title">Teaser Vidéo Officiel</h3>
             <div class="video-placeholder placeholder-image">
@@ -69,6 +75,7 @@
             </div>
         </section>
 
+        <!-- 1) Galerie d'images du projet et du gameplay (DÉPLACÉE EN SECOND) -->
         <section id="galerie" class="content-section">
             <h3 class="section-title">Galerie du Jeu et du Gameplay</h3>
             <div class="image-grid">
@@ -79,6 +86,7 @@
             </div>
         </section>
 
+        <!-- 2) Des photos de la console de jeu réel -->
         <section id="console" class="content-section grey-bg">
             <h3 class="section-title">Compatible avec votre console de jeu</h3>
             <div class="console-photo">
@@ -87,18 +95,22 @@
             </div>
         </section>
 
+        <!-- 3) Visuel 3D du boitier -->
         <section id="boitier" class="content-section">
-            <h3 class="section-title">Boitier</h3>
+            <h3 class="section-title">Boitier</h3> <!-- Libellé modifié -->
             <div class="image-3d placeholder-image">
                 VISUEL 3D DU BOÎTIER À VENIR
             </div>
         </section>
         
+        <!-- NOUVELLE SECTION: FIGURINES -->
         <section id="figurines" class="content-section grey-bg">
-            <h3 class="section-title">Figurines à peindre</h3>
+            <h3 class="section-title">Figurines à peindre</h3> <!-- Libellé modifié -->
             <div class="image-grid">
                 
+                <!-- PREMIÈRE FENÊTRE: MODÈLE 3D INTERACTIF -->
                 <div id="three-model-container" class="placeholder-image model-3d-container">
+                    <!-- Le rendu 3D Three.js se fait dans le canvas créé ici -->
                     <canvas id="three-canvas"></canvas>
                 </div>
 
@@ -107,10 +119,12 @@
             </div>
         </section>
         
+        <!-- NOUVELLE SECTION: MERCHANDISING (Avec contenu dynamique) -->
         <section id="merche" class="content-section">
             <h3 class="section-title">Merchandising Officiel</h3>
             <div class="image-grid">
 
+                <!-- FENÊTRE 1: TEE-SHIRTS -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-tee-shirt">
                         <img src="./images/teeshirt.png" alt="Tee-shirt modèle 1" class="slider-image">
@@ -122,6 +136,7 @@
                     </div>
                 </div>
 
+                <!-- FENÊTRE 2: MUGS (PRIX PROMOTIONNEL) -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-mug">
                         <img src="./images/mugoeuf.png" alt="Mug Oeuf" class="slider-image">
@@ -135,6 +150,7 @@
                     </div>
                 </div>
 
+                <!-- FENÊTRE 3: PULLS -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-pull">
                         <img src="./images/colfemme.png" alt="Pull modèle femme 1" class="slider-image">
@@ -146,6 +162,7 @@
                     </div>
                 </div>
 
+                <!-- FENÊTRE 4: POSTERS (Ajout de poster3.png) -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-poster">
                         <img src="./images/poster.png" alt="Poster de jeu 1" class="slider-image">
@@ -161,15 +178,17 @@
             </div>
         </section>
 
+        <!-- 4) Biographie de l'équipe (classée par ordre alphabétique) -->
         <section id="equipe" class="content-section team-section">
             <h3 class="section-title">L'Équipe de Développement</h3>
             <div class="team-grid">
+                <!-- Membres classés par ordre alphabétique -->
                 <div class="team-member">
                     <img src="./images/photo_lilou.png" alt="Photo de Lilou Berger" class="team-photo">
                     <div class="member-details">
                         <h4>Berger Lilou</h4>
                         <p><strong>23 ans, Tours</strong></p>
-                        <p>Spécialiste site web promotionnel</p>
+                        <p>Spécialiste site web promotionnel</p> <!-- CORRECTION ICI -->
                     </div>
                 </div>
                 <div class="team-member">
@@ -215,6 +234,7 @@
             </div>
         </section>
         
+        <!-- Call to Action final (Rappel) -->
         <section class="cta-bottom">
             <h3 class="section-title">Ne manquez pas l'occasion !</h3>
             <div class="cta-buttons">
@@ -231,22 +251,27 @@
         </div>
     </footer>
     
+    <!-- Code JavaScript pour le modèle 3D -->
     <script>
+        // Vérifie si Three.js et GLTFLoader sont chargés
         if (typeof THREE === 'undefined' || typeof THREE.GLTFLoader === 'undefined') {
             console.error("Three.js ou GLTFLoader non chargé. Le modèle 3D ne s'affichera pas. Vérifiez la connexion Internet et l'ordre des scripts.");
         } else {
             const container = document.getElementById('three-model-container');
             if (container) {
                 const canvas = document.getElementById('three-canvas');
-                // MODIFICATION ICI : Le chemin pointe maintenant vers le bon nom de fichier "poulet.glb"
-                const modelPath = './images/poulet.glb'; 
+                // CORRECTION ICI : Utiliser des slashs (/) au lieu de backslashes (\)
+                const modelPath = './images/3Dpoulet.glb'; 
 
                 let scene, camera, renderer, model;
 
+                // Initialisation de la scène
                 function init() {
+                    // SCENE
                     scene = new THREE.Scene();
-                    scene.background = new THREE.Color(0xffffff);
+                    scene.background = new THREE.Color(0xffffff); // Fond blanc pour être plus propre
 
+                    // CAMERA
                     const fov = 75;
                     const aspect = container.clientWidth / container.clientHeight;
                     const near = 0.1;
@@ -254,25 +279,29 @@
                     camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
                     camera.position.z = 3;
 
+                    // RENDERER
                     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
                     renderer.setSize(container.clientWidth, container.clientHeight);
 
+                    // LIGHTS
                     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
                     scene.add(ambientLight);
                     const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
                     directionalLight.position.set(0, 10, 5);
                     scene.add(directionalLight);
 
+                    // LOAD MODEL
                     const loader = new THREE.GLTFLoader();
                     loader.load(
                         modelPath,
                         (gltf) => {
                             model = gltf.scene;
-                            model.scale.set(1.5, 1.5, 1.5);
-                            model.position.set(0, -1, 0);
+                            model.scale.set(1.5, 1.5, 1.5); // Ajuster la taille
+                            model.position.set(0, -1, 0); // Positionner le modèle
                             scene.add(model);
                         },
                         (xhr) => {
+                            // Progression - Ajout d'une vérification pour xhr.total
                             if (xhr.total > 0) {
                                 console.log(`Chargement du modèle 3D: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
                             } else {
@@ -289,17 +318,19 @@
                     );
                 }
 
+                // Boucle d'animation (Mouvement)
                 function animate() {
                     requestAnimationFrame(animate);
 
                     if (model) {
-                        model.rotation.y += 0.01;
-                        model.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+                        model.rotation.y += 0.01; // Rotation constante
+                        model.rotation.x = Math.sin(Date.now() * 0.001) * 0.1; // Petit mouvement aléatoire
                     }
 
                     renderer.render(scene, camera);
                 }
 
+                // Redimensionnement du rendu
                 window.addEventListener('resize', () => {
                     if (container) {
                         camera.aspect = container.clientWidth / container.clientHeight;
