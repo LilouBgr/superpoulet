@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Inclusion des bibliothèques Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
 
@@ -42,65 +42,78 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- CORRECTION: Utilisation de slashes (/) pour la compatibilité web -->
-                <img src="./images/super_poulet_3d.jpg" alt="Personnage principal Super Poulet">
+                <img src=".\images\super_poulet_3d.jpg" alt="Personnage principal Super Poulet">
             </div>
         </div>
         
         <!-- Les 3 skins restent ici pour être dans la Hero Section -->
-        <img src="./images/super_poulet_pixel_1.png" alt="Personnage Poulet Classique" class="animated-pixel-char char-1">
-        <img src="./images/super_poulet_pixel_2.png" alt="Personnage Poussin" class="animated-pixel-char char-2">
-        <img src="./images/super_poulet_pixel_3.png" alt="Personnage Chevalier" class="animated-pixel-char char-3">
+        <img src=".\images\super_poulet_pixel_1.png" alt="Personnage Poulet Classique" class="animated-pixel-char char-1">
+        <img src=".\images\super_poulet_pixel_2.png" alt="Personnage Poussin" class="animated-pixel-char char-2">
+        <img src=".\images\super_poulet_pixel_3.png" alt="Personnage Chevalier" class="animated-pixel-char char-3">
     </section>
 
     <!-- !!! LE RENARD ET LES OEUFS SONT PLACÉS ICI POUR SE DÉPLACER PARTOUT !!! -->
-    <img src="./images/renard_poursuivant.png" alt="Le Renard Poursuivant" class="animated-pixel-char char-fox">
+    <img src=".\images\renard_poursuivant.png" alt="Le Renard Poursuivant" class="animated-pixel-char char-fox">
     
     <!-- SIX OEUFS POINTANT VERS LA MÊME IMAGE -->
-    <img src="./images/oeuf_super_poulet.png" alt="Oeuf #1" class="animated-egg egg-1">
-    <img src="./images/oeuf_super_poulet.png" alt="Oeuf #2" class="animated-egg egg-2">
-    <img src="./images/oeuf_super_poulet.png" alt="Oeuf #3" class="animated-egg egg-3">
-    <img src="./images/oeuf_super_poulet.png" alt="Oeuf #4" class="animated-egg egg-4">
-    <img src="./images/oeuf_super_poulet.png" alt="Oeuf #5" class="animated-egg egg-5">
-    <img src="./images/oeuf_super_poulet.png" alt="Oeuf #6" class="animated-egg egg-6">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #1" class="animated-egg egg-1">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #2" class="animated-egg egg-2">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #3" class="animated-egg egg-3">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #4" class="animated-egg egg-4">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #5" class="animated-egg egg-5">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #6" class="animated-egg egg-6">
     <!-- !!! FIN DU DÉPLACEMENT !!! -->
 
     <main class="container">
         
-        <!-- 5) Teaser vidéo (DÉPLACÉE EN PREMIER) -->
+        <!-- 5) Teaser vidéo (INTÉGRATION VIDÉO) -->
         <section id="teaser" class="content-section grey-bg">
             <h3 class="section-title">Teaser Vidéo Officiel</h3>
-            <div class="video-placeholder placeholder-image">
-                TEASER VIDÉO À VENIR
+            
+            <!-- CONTENEUR VIDÉO -->
+            <div class="video-container-teaser">
+                <video controls autoplay loop muted class="galerie-video">
+                    <source src=".\images\videoteaser.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo.
+                </video>
             </div>
+            <!-- FIN CONTENEUR VIDÉO -->
+            
         </section>
 
-        <!-- 1) Galerie d'images du projet et du gameplay (DÉPLACÉE EN SECOND) -->
+        <!-- 1) Galerie d'images du projet et du gameplay (VIDÉO DE JEU) -->
         <section id="galerie" class="content-section">
             <h3 class="section-title">Galerie du Jeu et du Gameplay</h3>
-            <div class="image-grid">
-                <div class="placeholder-image">À VENIR</div>
-                <div class="placeholder-image">À VENIR</div>
-                <div class="placeholder-image">À VENIR</div>
-                <div class="placeholder-image">À VENIR</div>
+            
+            <!-- EMPLACEMENT UNIQUE POUR LA VIDÉO DE JEU -->
+            <div class="video-container-galerie">
+                <video controls autoplay loop muted class="galerie-video">
+                    <source src=".\images\videosuperpoulet.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la balise vidéo.
+                </video>
             </div>
+            
         </section>
 
         <!-- 2) Des photos de la console de jeu réel -->
         <section id="console" class="content-section grey-bg">
             <h3 class="section-title">Compatible avec votre console de jeu</h3>
             <div class="console-photo">
-                <img src="./images/snes_controller.jpg" alt="Manette Super Nintendo">
+                <img src=".\images\snes_controller.jpg" alt="Manette Super Nintendo">
                 <p>Retrouvez les sensations classiques de l'âge d'or du jeu vidéo.</p>
             </div>
         </section>
 
-        <!-- 3) Visuel 3D du boitier -->
+        <!-- 3) Visuel 3D du boitier (INTÉGRATION IMAGE) -->
         <section id="boitier" class="content-section">
             <h3 class="section-title">Boitier</h3> <!-- Libellé modifié -->
-            <div class="image-3d placeholder-image">
-                VISUEL 3D DU BOÎTIER À VENIR
+            
+            <!-- IMAGE DU BOITIER -->
+            <div class="image-3d-container">
+                <img src=".\images\photoboitier.png" alt="Visuel 3D du Boîtier" class="boitier-image">
             </div>
+            <!-- FIN IMAGE DU BOITIER -->
+            
         </section>
         
         <!-- NOUVELLE SECTION: FIGURINES -->
@@ -108,21 +121,14 @@
             <h3 class="section-title">Figurines à peindre</h3> <!-- Libellé modifié -->
             <div class="image-grid">
                 
-                <!-- PREMIÈRE FENÊTRE: MODÈLE 3D INTERACTIF (3Dpoulet.glb) -->
+                <!-- PREMIÈRE FENÊTRE: MODÈLE 3D INTERACTIF -->
                 <div id="three-model-container" class="placeholder-image model-3d-container">
                     <!-- Le rendu 3D Three.js se fait dans le canvas créé ici -->
                     <canvas id="three-canvas"></canvas>
                 </div>
 
-                <!-- DEUXIÈME FENÊTRE: MODÈLE 3D POUSSIN -->
-                <div id="three-model-container-2" class="placeholder-image model-3d-container">
-                    <canvas id="three-canvas-2"></canvas>
-                </div>
-
-                <!-- TROISIÈME FENÊTRE: MODÈLE 3D SUPER POULET -->
-                <div id="three-model-container-3" class="placeholder-image model-3d-container">
-                    <canvas id="three-canvas-3"></canvas>
-                </div>
+                <div class="placeholder-image">STATUETTE A VENIR</div>
+                <div class="placeholder-image">FIGURINE A VENIR</div>
             </div>
         </section>
         
@@ -134,8 +140,8 @@
                 <!-- FENÊTRE 1: TEE-SHIRTS -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-tee-shirt">
-                        <img src="./images/teeshirt.png" alt="Tee-shirt modèle 1" class="slider-image">
-                        <img src="./images/teeshirt2.png" alt="Tee-shirt modèle 2" class="slider-image">
+                        <img src=".\images\teeshirt.png" alt="Tee-shirt modèle 1" class="slider-image">
+                        <img src=".\images\teeshirt2.png" alt="Tee-shirt modèle 2" class="slider-image">
                     </div>
                     <div class="merch-info">
                         <h4>Tee-Shirts Exclusifs</h4>
@@ -146,10 +152,10 @@
                 <!-- FENÊTRE 2: MUGS (PRIX PROMOTIONNEL) -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-mug">
-                        <img src="./images/mugoeuf.png" alt="Mug Oeuf" class="slider-image">
-                        <img src="./images/mugpoussin.png" alt="Mug Poussin" class="slider-image">
-                        <img src="./images/mugpoule.png" alt="Mug Poule" class="slider-image">
-                        <img src="./images/mugrenard.png" alt="Mug Renard" class="slider-image">
+                        <img src=".\images\mugoeuf.png" alt="Mug Oeuf" class="slider-image">
+                        <img src=".\images\mugpoussin.png" alt="Mug Poussin" class="slider-image">
+                        <img src=".\images\mugpoule.png" alt="Mug Poule" class="slider-image">
+                        <img src=".\images\mugrenard.png" alt="Mug Renard" class="slider-image">
                     </div>
                     <div class="merch-info">
                         <h4>Mugs Gaming</h4>
@@ -160,8 +166,8 @@
                 <!-- FENÊTRE 3: PULLS -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-pull">
-                        <img src="./images/colfemme.png" alt="Pull modèle femme 1" class="slider-image">
-                        <img src="./images/colfemme2.png" alt="Pull modèle femme 2" class="slider-image">
+                        <img src=".\images\colfemme.png" alt="Pull modèle femme 1" class="slider-image">
+                        <img src=".\images\colfemme2.png" alt="Pull modèle femme 2" class="slider-image">
                     </div>
                     <div class="merch-info">
                         <h4>Pulls à Col Roulé</h4>
@@ -172,9 +178,9 @@
                 <!-- FENÊTRE 4: POSTERS (Ajout de poster3.png) -->
                 <div class="merch-item">
                     <div class="merch-image-slider slider-poster">
-                        <img src="./images/poster.png" alt="Poster de jeu 1" class="slider-image">
-                        <img src="./images/poster2.png" alt="Poster de jeu 2" class="slider-image">
-                        <img src="./images/poster3.png" alt="Poster de jeu 3" class="slider-image">
+                        <img src=".\images\poster.png" alt="Poster de jeu 1" class="slider-image">
+                        <img src=".\images\poster2.png" alt="Poster de jeu 2" class="slider-image">
+                        <img src=".\images\poster3.png" alt="Poster de jeu 3" class="slider-image">
                     </div>
                     <div class="merch-info">
                         <h4>Posters Collector</h4>
@@ -185,13 +191,13 @@
             </div>
         </section>
 
-        <!-- 4) Biographie de l'équipe (classée par ordre alphabétique) -->
+        <!-- 4) Biographie de l’équipe (classée par ordre alphabétique) -->
         <section id="equipe" class="content-section team-section">
             <h3 class="section-title">L'Équipe de Développement</h3>
             <div class="team-grid">
                 <!-- Membres classés par ordre alphabétique -->
                 <div class="team-member">
-                    <img src="./images/photo_lilou.png" alt="Photo de Lilou Berger" class="team-photo">
+                    <img src=".\images\photo_lilou.png" alt="Photo de Lilou Berger" class="team-photo">
                     <div class="member-details">
                         <h4>Berger Lilou</h4>
                         <p><strong>23 ans, Tours</strong></p>
@@ -199,7 +205,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="./images/photo_mathis.png" alt="Photo de Mathis Chauvin" class="team-photo">
+                    <img src=".\images\photo_mathis.png" alt="Photo de Mathis Chauvin" class="team-photo">
                     <div class="member-details">
                         <h4>Chauvin Mathis</h4>
                         <p><strong>22 ans, Angers</strong></p>
@@ -207,7 +213,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="./images/photo_martin.png" alt="Photo de Martin Esnault" class="team-photo">
+                    <img src=".\images\photo_martin.png" alt="Photo de Martin Esnault" class="team-photo">
                     <div class="member-details">
                         <h4>Esnault Martin</h4>
                         <p><strong>22 ans, Angers</strong></p>
@@ -215,7 +221,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="./images/photo_teo.png" alt="Photo de Téo Longépé" class="team-photo">
+                    <img src=".\images\photo_teo.png" alt="Photo de Téo Longépé" class="team-photo">
                     <div class="member-details">
                         <h4>Longépé Téo</h4>
                         <p><strong>23 ans, Tours</strong></p>
@@ -223,7 +229,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="./images/photo_maxime.png" alt="Photo de Maxime Moraine" class="team-photo">
+                    <img src=".\images\photo_maxime.png" alt="Photo de Maxime Moraine" class="team-photo">
                     <div class="member-details">
                         <h4>Moraine Maxime</h4>
                         <p><strong>22 ans, Angers</strong></p>
@@ -231,7 +237,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="./images/photo_tony.png" alt="Photo de Tony Roncin" class="team-photo">
+                    <img src=".\images\photo_tony.png" alt="Photo de Tony Roncin" class="team-photo">
                     <div class="member-details">
                         <h4>Roncin Tony</h4>
                         <p><strong>22 ans, Tours</strong></p>
@@ -258,220 +264,95 @@
         </div>
     </footer>
     
-    <!-- Code JavaScript pour les modèles 3D -->
+    <!-- Code JavaScript pour le modèle 3D -->
     <script>
         // Vérifie si Three.js et GLTFLoader sont chargés
         if (typeof THREE === 'undefined' || typeof THREE.GLTFLoader === 'undefined') {
-            console.error("Three.js ou GLTFLoader non chargé. Les modèles 3D ne s'afficheront pas. Vérifiez la connexion Internet et l'ordre des scripts.");
+            console.error("Three.js ou GLTFLoader non chargé. Le modèle 3D ne s'affichera pas. Vérifiez la connexion Internet et l'ordre des scripts.");
         } else {
-            // ==================== MODÈLE 1 : 3Dpoulet.glb ====================
-            const container1 = document.getElementById('three-model-container');
-            if (container1) {
-                const canvas1 = document.getElementById('three-canvas');
-                const modelPath1 = './images/3Dpoulet.glb'; 
+            // ========== PREMIER MODÈLE 3D: 3Dpoulet.glb ==========
+            const container = document.getElementById('three-model-container');
+            if (container) {
+                const canvas = document.getElementById('three-canvas');
+                const modelPath = './images/3Dpoulet.glb'; 
 
-                let scene1, camera1, renderer1, model1;
+                let scene, camera, renderer, model;
 
-                function init1() {
-                    scene1 = new THREE.Scene();
-                    scene1.background = new THREE.Color(0xffffff);
+                // Initialisation de la scène
+                function init() {
+                    // SCENE
+                    scene = new THREE.Scene();
+                    scene.background = new THREE.Color(0xffffff);
 
+                    // CAMERA
                     const fov = 75;
-                    const aspect = container1.clientWidth / container1.clientHeight;
+                    const aspect = container.clientWidth / container.clientHeight;
                     const near = 0.1;
                     const far = 1000;
-                    camera1 = new THREE.PerspectiveCamera(fov, aspect, near, far);
-                    camera1.position.z = 3;
+                    camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                    camera.position.z = 3;
 
-                    renderer1 = new THREE.WebGLRenderer({ canvas: canvas1, antialias: true, alpha: true });
-                    renderer1.setSize(container1.clientWidth, container1.clientHeight);
+                    // RENDERER
+                    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                    renderer.setSize(container.clientWidth, container.clientHeight);
 
-                    const ambientLight1 = new THREE.AmbientLight(0xffffff, 1.5);
-                    scene1.add(ambientLight1);
-                    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
-                    directionalLight1.position.set(0, 10, 5);
-                    scene1.add(directionalLight1);
+                    // LIGHTS
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+                    scene.add(ambientLight);
+                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+                    directionalLight.position.set(0, 10, 5);
+                    scene.add(directionalLight);
 
-                    const loader1 = new THREE.GLTFLoader();
-                    loader1.load(
-                        modelPath1,
+                    // LOAD MODEL
+                    const loader = new THREE.GLTFLoader();
+                    loader.load(
+                        modelPath,
                         (gltf) => {
-                            model1 = gltf.scene;
-                            model1.scale.set(1.5, 1.5, 1.5);
-                            model1.position.set(0, -1, 0);
-                            scene1.add(model1);
+                            model = gltf.scene;
+                            model.scale.set(1.5, 1.5, 1.5);
+                            model.position.set(0, -1, 0);
+                            scene.add(model);
                         },
                         (xhr) => {
                             if (xhr.total > 0) {
-                                console.log(`Chargement modèle 1: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
+                                console.log(`Chargement du modèle 3D: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
+                            } else {
+                                console.log(`Chargement du modèle 3D: ${xhr.loaded} octets chargés.`);
                             }
                         },
                         (error) => {
-                            console.error('Erreur chargement modèle 1:', error);
-                            container1.innerHTML = "Erreur de chargement du modèle 3D";
+                            console.error('Erreur lors du chargement du modèle 3D. Vérifiez le chemin et le format du fichier GLB:', error);
+                            container.innerHTML = "Erreur de chargement du modèle 3D. Vérifiez le chemin et les fichiers.";
+                            container.style.display = 'flex';
+                            container.style.alignItems = 'center';
+                            container.style.justifyContent = 'center';
                         }
                     );
                 }
 
-                function animate1() {
-                    requestAnimationFrame(animate1);
-                    if (model1) {
-                        model1.rotation.y += 0.01;
-                        model1.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+                // Boucle d'animation (Mouvement)
+                function animate() {
+                    requestAnimationFrame(animate);
+
+                    if (model) {
+                        model.rotation.y += 0.01;
+                        model.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
                     }
-                    renderer1.render(scene1, camera1);
+
+                    renderer.render(scene, camera);
                 }
 
+                // Redimensionnement du rendu
                 window.addEventListener('resize', () => {
-                    if (container1) {
-                        camera1.aspect = container1.clientWidth / container1.clientHeight;
-                        camera1.updateProjectionMatrix();
-                        renderer1.setSize(container1.clientWidth, container1.clientHeight);
+                    if (container) {
+                        camera.aspect = container.clientWidth / container.clientHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(container.clientWidth, container.clientHeight);
                     }
                 });
 
-                init1();
-                animate1();
-            }
-
-            // ==================== MODÈLE 2 : poussin.glb ====================
-            const container2 = document.getElementById('three-model-container-2');
-            if (container2) {
-                const canvas2 = document.getElementById('three-canvas-2');
-                const modelPath2 = './images/poussin.glb'; 
-
-                let scene2, camera2, renderer2, model2;
-
-                function init2() {
-                    scene2 = new THREE.Scene();
-                    scene2.background = new THREE.Color(0xffffff);
-
-                    const fov = 75;
-                    const aspect = container2.clientWidth / container2.clientHeight;
-                    const near = 0.1;
-                    const far = 1000;
-                    camera2 = new THREE.PerspectiveCamera(fov, aspect, near, far);
-                    camera2.position.z = 3;
-
-                    renderer2 = new THREE.WebGLRenderer({ canvas: canvas2, antialias: true, alpha: true });
-                    renderer2.setSize(container2.clientWidth, container2.clientHeight);
-
-                    const ambientLight2 = new THREE.AmbientLight(0xffffff, 1.5);
-                    scene2.add(ambientLight2);
-                    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1.5);
-                    directionalLight2.position.set(0, 10, 5);
-                    scene2.add(directionalLight2);
-
-                    const loader2 = new THREE.GLTFLoader();
-                    loader2.load(
-                        modelPath2,
-                        (gltf) => {
-                            model2 = gltf.scene;
-                            model2.scale.set(1.5, 1.5, 1.5);
-                            model2.position.set(0, -1, 0);
-                            scene2.add(model2);
-                        },
-                        (xhr) => {
-                            if (xhr.total > 0) {
-                                console.log(`Chargement modèle 2 (poussin): ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
-                            }
-                        },
-                        (error) => {
-                            console.error('Erreur chargement modèle 2 (poussin):', error);
-                            container2.innerHTML = "Erreur de chargement du modèle poussin";
-                        }
-                    );
-                }
-
-                function animate2() {
-                    requestAnimationFrame(animate2);
-                    if (model2) {
-                        model2.rotation.y += 0.01;
-                        model2.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
-                    }
-                    renderer2.render(scene2, camera2);
-                }
-
-                window.addEventListener('resize', () => {
-                    if (container2) {
-                        camera2.aspect = container2.clientWidth / container2.clientHeight;
-                        camera2.updateProjectionMatrix();
-                        renderer2.setSize(container2.clientWidth, container2.clientHeight);
-                    }
-                });
-
-                init2();
-                animate2();
-            }
-
-            // ==================== MODÈLE 3 : superpoulet.glb ====================
-            const container3 = document.getElementById('three-model-container-3');
-            if (container3) {
-                const canvas3 = document.getElementById('three-canvas-3');
-                const modelPath3 = './images/superpoulet.glb'; 
-
-                let scene3, camera3, renderer3, model3;
-
-                function init3() {
-                    scene3 = new THREE.Scene();
-                    scene3.background = new THREE.Color(0xffffff);
-
-                    const fov = 75;
-                    const aspect = container3.clientWidth / container3.clientHeight;
-                    const near = 0.1;
-                    const far = 1000;
-                    camera3 = new THREE.PerspectiveCamera(fov, aspect, near, far);
-                    camera3.position.z = 3;
-
-                    renderer3 = new THREE.WebGLRenderer({ canvas: canvas3, antialias: true, alpha: true });
-                    renderer3.setSize(container3.clientWidth, container3.clientHeight);
-
-                    const ambientLight3 = new THREE.AmbientLight(0xffffff, 1.5);
-                    scene3.add(ambientLight3);
-                    const directionalLight3 = new THREE.DirectionalLight(0xffffff, 1.5);
-                    directionalLight3.position.set(0, 10, 5);
-                    scene3.add(directionalLight3);
-
-                    const loader3 = new THREE.GLTFLoader();
-                    loader3.load(
-                        modelPath3,
-                        (gltf) => {
-                            model3 = gltf.scene;
-                            model3.scale.set(1.5, 1.5, 1.5);
-                            model3.position.set(0, -1, 0);
-                            scene3.add(model3);
-                        },
-                        (xhr) => {
-                            if (xhr.total > 0) {
-                                console.log(`Chargement modèle 3 (superpoulet): ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
-                            }
-                        },
-                        (error) => {
-                            console.error('Erreur chargement modèle 3 (superpoulet):', error);
-                            container3.innerHTML = "Erreur de chargement du modèle superpoulet";
-                        }
-                    );
-                }
-
-                function animate3() {
-                    requestAnimationFrame(animate3);
-                    if (model3) {
-                        model3.rotation.y += 0.01;
-                        model3.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
-                    }
-                    renderer3.render(scene3, camera3);
-                }
-
-                window.addEventListener('resize', () => {
-                    if (container3) {
-                        camera3.aspect = container3.clientWidth / container3.clientHeight;
-                        camera3.updateProjectionMatrix();
-                        renderer3.setSize(container3.clientWidth, container3.clientHeight);
-                    }
-                });
-
-                init3();
-                animate3();
+                init();
+                animate();
             }
         }
     </script>
