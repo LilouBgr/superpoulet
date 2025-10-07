@@ -6,6 +6,9 @@
     <title>Super Poulet - Le Jeu Vidéo Officiel</title>
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Inclusion des bibliothèques Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
 
@@ -103,7 +106,13 @@
         <section id="figurines" class="content-section grey-bg">
             <h3 class="section-title">Figurines à peindre</h3> <!-- Libellé modifié -->
             <div class="image-grid">
-                <div class="placeholder-image">FIGURINE A VENIR</div>
+                
+                <!-- PREMIÈRE FENÊTRE: MODÈLE 3D INTERACTIF -->
+                <div id="three-model-container" class="placeholder-image model-3d-container">
+                    <!-- Le rendu 3D Three.js se fait dans le canvas créé ici -->
+                    <canvas id="three-canvas"></canvas>
+                </div>
+
                 <div class="placeholder-image">STATUETTE A VENIR</div>
                 <div class="placeholder-image">FIGURINE A VENIR</div>
             </div>
@@ -240,6 +249,95 @@
             <p>&copy; 2025 Super Poulet. Tous droits réservés.</p>
         </div>
     </footer>
+    
+    <!-- Code JavaScript pour le modèle 3D -->
+    <script>
+        // Vérifie si Three.js et GLTFLoader sont chargés
+        if (typeof THREE === 'undefined' || typeof THREE.GLTFLoader === 'undefined') {
+            console.error("Three.js ou GLTFLoader non chargé. Le modèle 3D ne s'affichera pas. Vérifiez la connexion Internet et l'ordre des scripts.");
+        } else {
+            const container = document.getElementById('three-model-container');
+            if (container) {
+                const canvas = document.getElementById('three-canvas');
+                const modelPath = '.\images\3Dpoulet.glb'; // Utilisation du chemin "image/" pour le GLB
+
+                let scene, camera, renderer, model;
+
+                // Initialisation de la scène
+                function init() {
+                    // SCENE
+                    scene = new THREE.Scene();
+                    scene.background = new THREE.Color(0xffffff); // Fond blanc pour être plus propre
+
+                    // CAMERA
+                    const fov = 75;
+                    const aspect = container.clientWidth / container.clientHeight;
+                    const near = 0.1;
+                    const far = 1000;
+                    camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                    camera.position.z = 3;
+
+                    // RENDERER
+                    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+
+                    // LIGHTS
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+                    scene.add(ambientLight);
+                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+                    directionalLight.position.set(0, 10, 5);
+                    scene.add(directionalLight);
+
+                    // LOAD MODEL
+                    const loader = new THREE.GLTFLoader();
+                    loader.load(
+                        modelPath,
+                        (gltf) => {
+                            model = gltf.scene;
+                            model.scale.set(1.5, 1.5, 1.5); // Ajuster la taille
+                            model.position.set(0, -1, 0); // Positionner le modèle
+                            scene.add(model);
+                        },
+                        (xhr) => {
+                            // Progression
+                            console.log(`Chargement du modèle 3D: ${(xhr.loaded / xhr.total * 100).toFixed(0)}%`);
+                        },
+                        (error) => {
+                            console.error('Erreur lors du chargement du modèle 3D. Vérifiez le chemin et le format du fichier GLB:', error);
+                            container.innerHTML = "Erreur de chargement du modèle 3D. Vérifiez le chemin et les fichiers.";
+                            container.style.display = 'flex';
+                            container.style.alignItems = 'center';
+                            container.style.justifyContent = 'center';
+                        }
+                    );
+                }
+
+                // Boucle d'animation (Mouvement)
+                function animate() {
+                    requestAnimationFrame(animate);
+
+                    if (model) {
+                        model.rotation.y += 0.01; // Rotation constante
+                        model.rotation.x = Math.sin(Date.now() * 0.001) * 0.1; // Petit mouvement aléatoire
+                    }
+
+                    renderer.render(scene, camera);
+                }
+
+                // Redimensionnement du rendu
+                window.addEventListener('resize', () => {
+                    if (container) {
+                        camera.aspect = container.clientWidth / container.clientHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(container.clientWidth, container.clientHeight);
+                    }
+                });
+
+                init();
+                animate();
+            }
+        }
+    </script>
 
 </body>
 </html>
