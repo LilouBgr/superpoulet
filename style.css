@@ -341,23 +341,31 @@ body {
 .egg-6 { --offset-x: 55; }
 
 
-/* ------------------ GALERIE (Nouveau style avec fond d'écran plein format) ------------------ */
+/* ------------------ GALERIE (Nouveau style pour la vidéo) ------------------ */
 #galerie {
-    background-image: url('map_background.jpg'); /* NOM DE FICHIER À VÉRIFIER */
-    background-size: cover; /* Couvre toute la section */
-    background-position: center center;
-    background-attachment: fixed; /* Fixe l'image pour un effet de parallaxe */
-    padding: 100px 0; /* Augmente le padding pour mieux voir l'image */
-    color: white; /* Pour que le texte soit lisible sur la carte */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombre pour améliorer la lisibilité */
+    /* Supprimer les styles de l'ancienne image de fond */
+    background-image: none;
+    background-color: var(--color-light); /* Remplacer par un fond clair pour la vidéo */
+    background-attachment: scroll;
+    padding: 60px 0; /* Ajuster le padding */
+    color: var(--color-text);
+    text-shadow: none;
 }
 
-/* Rendre les images placeholder transparentes sur la galerie pour voir le fond */
-#galerie .placeholder-image {
-    background-color: rgba(0, 0, 0, 0.4); 
-    border-color: rgba(255, 255, 255, 0.8);
-    color: white;
+.video-container-galerie {
+    max-width: 900px; /* Largeur maximale pour le conteneur */
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
 }
+
+.galerie-video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 /* ------------------ Appels à l'action (CTA) ------------------ */
 
@@ -578,6 +586,24 @@ body {
     padding: 0 20px;
 }
 
+/* ------------------ Conteneur du Modèle 3D ------------------ */
+.model-3d-container {
+    padding-top: 0; /* Annuler le padding-top du placeholder-image */
+    min-height: 350px; /* Hauteur fixe pour le conteneur 3D */
+    background-color: #ffffff; /* Fond blanc pour le modèle */
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+#three-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 /* ------------------ MERCHANDISING (Styles des produits) ------------------ */
 
 .merch-item {
@@ -752,28 +778,145 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* ------------------ Section CTA Bottom IMPACTANTE (Effet Stroboscopique Extrême) ------------------ */
+
+/* Animation de Vibration (pour rendre l'ensemble instable) */
+@keyframes shake-section {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-2px); }
+}
+
+.cta-bottom {
+    padding: 60px 0;
+    background-color: var(--color-secondary);
+    color: white;
+    border-top: 5px solid var(--color-primary);
+    position: relative;
+    overflow: hidden;
+    text-align: center; 
+    
+    animation: flash-bg 0.1s infinite alternate, shake-section 0.05s infinite alternate; /* Vitesse Extrême */
+}
+
+/* Animation de Clignotement du Fond */
+@keyframes flash-bg {
+    0% { background-color: var(--color-secondary); }
+    100% { background-color: #ff0000; } /* Rouge Éclatant */
+}
+.cta-bottom {
+    /* ... (règles précédentes de .cta-bottom) ... */
+    animation: flash-bg 0.1s infinite alternate, shake-section 0.05s infinite alternate; /* Vitesse Extrême */
+}
+
+
+.cta-bottom::before {
+    content: '!!! ACHAT IMMÉDIAT !!!';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 4em;
+    font-weight: 900;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.1;
+    z-index: 1;
+    animation: rotate-light 1s infinite linear; /* Accéléré */
+}
+
+@keyframes rotate-light {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.1; }
+    100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+}
+
+.cta-bottom .section-title {
+    color: white;
+    margin-bottom: 40px;
+    z-index: 2;
+    position: relative; 
+    animation: neon-pulse 0.2s infinite alternate; /* TRÈS RAPIDE */
+}
+
+@keyframes neon-pulse {
+    0% { text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-secondary); }
+    100% { text-shadow: 0 0 5px var(--color-secondary), 0 0 30px var(--color-primary); }
+}
+
+.cta-bottom .section-title::after {
+    background-color: white;
+}
+.cta-bottom .cta-button {
+    box-shadow: none; 
+    animation: cta-flash 0.1s infinite alternate; /* Clignotement des boutons */
+}
+
+@keyframes cta-flash {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(0.98); }
+}
+
+
 /* ------------------ RESPONSIVE DESIGN (Media Queries) ------------------ */
 
 @media (max-width: 992px) {
-    /* ... (règles inchangées) ... */
-    .hero-section .container { flex-direction: column-reverse; }
-    .hero-content, .hero-image { flex-basis: 100%; padding-right: 0; text-align: center; }
-    .hero-image { margin-bottom: 40px; }
-    .hero-section h2 { font-size: 2.8em; }
-    .team-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .animated-pixel-char { width: 60px; opacity: 0.6; }
-    .animated-egg { width: 20px; height: 20px; }
+    .hero-section .container {
+        flex-direction: column-reverse; 
+    }
+    .hero-content, .hero-image {
+        flex-basis: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+    .hero-image {
+        margin-bottom: 40px;
+    }
+    .hero-section h2 {
+        font-size: 2.8em;
+    }
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .animated-pixel-char {
+        width: 60px; 
+        opacity: 0.6;
+    }
+    .animated-egg {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    /* ... (règles inchangées) ... */
-    .hero-section { padding: 80px 0; }
-    .hero-section h2 { font-size: 2.2em; }
-    .animated-pixel-char { width: 50px; opacity: 0.5; }
-    .char-fox { width: 80px; }
-    .cta-bottom::before { font-size: 2.5em; } 
-    .team-member { padding: 15px; }
-    .team-photo { width: 50px; height: 50px; }
+    .hero-section {
+        padding: 80px 0;
+    }
+    .hero-section h2 {
+        font-size: 2.2em;
+    }
+
+    .animated-pixel-char {
+        width: 50px;
+        opacity: 0.5;
+    }
+    .char-fox {
+        width: 80px;
+    }
+    .cta-bottom::before {
+        font-size: 2.5em; /* Réduire la taille du texte d'arrière-plan */
+    }
+    .team-member {
+        padding: 15px;
+    }
+    .team-photo {
+        width: 50px;
+        height: 50px;
+    }
     .merch-info .price {
         flex-direction: column; /* Empile les prix sur mobile */
         gap: 0;
@@ -781,14 +924,35 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* ... (règles inchangées) ... */
-    .main-header h1 { font-size: 1.6em; }
-    .hero-section h2 { font-size: 1.8em; }
-    .animated-pixel-char { width: 40px; opacity: 0.4; }
-    .char-fox { width: 60px; }
-    .animated-egg { width: 15px; height: 15px; }
-    .cta-bottom::before { font-size: 1.5em; }
-    .team-member { flex-direction: column; text-align: center; }
-    .team-photo { margin-bottom: 10px; }
-    .team-member h4 { margin-top: 5px; }
+    .main-header h1 {
+        font-size: 1.6em;
+    }
+    .hero-section h2 {
+        font-size: 1.8em;
+    }
+
+    .animated-pixel-char {
+        width: 40px; 
+        opacity: 0.4;
+    }
+    .char-fox {
+        width: 60px;
+    }
+    .animated-egg {
+        width: 15px;
+        height: 15px;
+    }
+    .cta-bottom::before {
+        font-size: 1.5em; /* Réduire encore */
+    }
+    .team-member {
+        flex-direction: column; /* Empile la photo au-dessus du texte */
+        text-align: center;
+    }
+    .team-photo {
+        margin-bottom: 10px;
+    }
+    .team-member h4 {
+        margin-top: 5px;
+    }
 }
