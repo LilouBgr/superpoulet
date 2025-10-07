@@ -1,0 +1,794 @@
+/* Définition des variables de couleur pour la cohérence */
+:root {
+    --color-primary: #FFCC00; /* Jaune Poulet vif */
+    --color-secondary: #D43F3A; /* Rouge Écharpe/Crête */
+    --color-dark: #2c3e50; /* Bleu marine foncé pour le texte et les bordures */
+    --color-light: #fdfdfd; /* Arrière-plan presque blanc */
+    --color-text: #34495e; /* Texte principal */
+    --color-grey-section: #ecf0f1; /* Arrière-plan section grise */
+    --color-accent-hover: #e6b800; /* Jaune plus foncé au survol */
+}
+
+/* ------------------ Base et Mise en page ------------------ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.grey-bg {
+    background-color: var(--color-grey-section);
+}
+
+.section-title {
+    font-size: 2.6em;
+    color: var(--color-secondary);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+/* ------------------ Header et Navigation ------------------ */
+
+.main-header {
+    background-color: var(--color-dark);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Styles du Nouveau Logo */
+.logo-title {
+    font-size: 1.8em;
+    font-weight: 900;
+    color: white; /* Couleur principale du titre */
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-title .logo-icon {
+    font-size: 1.5em; /* Rendre l'icône de poulet plus grande */
+    color: var(--color-primary);
+    margin-right: 10px;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.7); /* Petit effet lumineux */
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-title:hover .logo-icon {
+    transform: rotate(-10deg) scale(1.1); /* Animation au survol */
+}
+
+.logo-title .logo-subtitle {
+    font-size: 0.5em; /* Rendre le sous-titre très petit */
+    color: var(--color-secondary); /* Couleur rouge pour le contraste */
+    font-weight: 700;
+    margin-left: 5px;
+    align-self: flex-end; /* Aligner le sous-titre en bas du titre principal */
+    letter-spacing: 0.5px;
+}
+
+.main-header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 700;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    left: 50%;
+    bottom: 0;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.main-header nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.main-header nav a:hover {
+    color: var(--color-primary);
+}
+
+/* ------------------ Hero Section ------------------ */
+
+.hero-section {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    padding: 100px 0;
+    text-align: left;
+    color: white;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* ... (Animations et styles du Hero Section inchangés) ... */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: pulse 4s infinite alternate;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: pulse 3s infinite alternate reverse;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative; 
+    z-index: 1;
+}
+
+.hero-content {
+    flex-basis: 55%;
+    min-width: 300px;
+    padding-right: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section h2 {
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.hero-image {
+    flex-basis: 40%;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-in-out;
+}
+
+.hero-image img:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* ------------------ Personnages Pixel Art animés ------------------ */
+.animated-pixel-char {
+    position: absolute;
+    width: 80px; 
+    height: auto;
+    z-index: 5; 
+    opacity: 0.8; 
+    transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+    image-rendering: pixelated; 
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3)); 
+}
+/* Force les éléments en dehors du flux (Renard et Oeufs) à être au-dessus */
+.char-fox, .animated-egg {
+    z-index: 999 !important; 
+}
+
+
+.animated-pixel-char:hover {
+    opacity: 1; 
+    cursor: grab; 
+    transform: scale(1.1) !important; 
+}
+
+
+/* 1. Mouvements des Héros (Temps multiplié par 2) */
+.char-1 { 
+    top: 50%;
+    left: 10%;
+    animation: char-move-1 4s infinite linear alternate; 
+}
+
+.char-2 { 
+    top: 20%;
+    right: 20%;
+    width: 60px;
+    animation: char-move-2 4.8s infinite linear alternate-reverse; 
+}
+
+.char-3 { 
+    bottom: 5%;
+    left: 60%;
+    width: 100px;
+    animation: char-move-3 5.6s infinite linear alternate; 
+}
+
+@keyframes char-move-1 {
+    0% { transform: translate(-100vw, -10vh) rotate(5deg); } 
+    100% { transform: translate(150vw, 50vh) rotate(-5deg); } 
+}
+
+@keyframes char-move-2 {
+    0% { transform: translate(0, 0) scaleX(1); }
+    50% { transform: translate(-30vw, 50vh) scaleX(1); }
+    50.01% { transform: translate(-30vw, 50vh) scaleX(-1); } 
+    100% { transform: translate(0, 0) scaleX(-1); } 
+}
+
+@keyframes char-move-3 {
+    0% { transform: translate(100vw, 0) rotate(0deg); }
+    100% { transform: translate(-100vw, 0) rotate(0deg); } 
+}
+
+/* 2. Le Renard Poursuivant (Ralenti à 12 secondes et mouvement aléatoire) */
+.char-fox {
+    width: 120px; 
+    opacity: 0.6;
+    animation: fox-chase 12s infinite ease-in-out alternate; 
+}
+
+@keyframes fox-chase {
+    0% { transform: translate(10vw, 80vh) scaleX(1) rotate(0deg); } 
+    25% { transform: translate(70vw, 20vh) scaleX(1) rotate(-10deg); } 
+    50% { transform: translate(-5vw, 50vh) scaleX(-1) rotate(5deg); } 
+    75% { transform: translate(85vw, 60vh) scaleX(-1) rotate(15deg); } 
+    100% { transform: translate(10vw, 80vh) scaleX(1) rotate(0deg); } 
+}
+
+/* 3. Les Oeufs (Chute sur toute la hauteur de la page et Accumulation Simulé) */
+.animated-egg {
+    position: fixed; /* Utilisation de fixed pour couvrir 0vh à 100vh */
+    z-index: 999; 
+    image-rendering: pixelated; 
+    opacity: 0; 
+}
+
+/* Styles spécifiques aux 6 œufs */
+.egg-1 { width: 20px; height: 20px; animation: egg-fall-fade 10s infinite ease-in 0s; }
+.egg-2 { width: 30px; height: 30px; animation: egg-fall-fade 10s infinite ease-in 1.2s; } 
+.egg-3 { width: 40px; height: 40px; animation: egg-fall-fade 10s infinite ease-in 2.4s; } 
+.egg-4 { width: 25px; height: 25px; animation: egg-fall-fade 10s infinite ease-in 3.6s; } 
+.egg-5 { width: 35px; height: 35px; animation: egg-fall-fade 10s infinite ease-in 4.8s; } 
+.egg-6 { width: 45px; height: 45px; animation: egg-fall-fade 10s infinite ease-in 6s; } 
+
+
+/* Animation de Chute et Entassement Simulé (10s de cycle) */
+@keyframes egg-fall-fade {
+    0% { opacity: 1; transform: translate(calc(var(--offset-x, 0) * 1vw), -10vh) scale(1); } /* Démarrage au-dessus de l'écran, position latérale variable */
+    
+    10% { opacity: 1; transform: translate(calc(var(--offset-x, 0) * 1vw), 10vh) scale(1); } /* Ralentissement de la chute */
+
+    50% { opacity: 1; transform: translate(calc(var(--offset-x, 0) * 1vw), 95vh) scale(1); } /* Atteint le fond (95vh) */
+    
+    80% { opacity: 1; transform: translate(calc(var(--offset-x, 0) * 1vw), 95vh) scale(1); } /* Reste au fond 3 secondes (50% à 80% du temps total de 10s) */
+
+    100% { opacity: 0; transform: translate(calc(var(--offset-x, 0) * 1vw), 95vh) scale(0.1); } /* Disparition et réinitialisation */
+}
+
+/* Définition des positions horizontales (simule l'empilement) */
+.egg-1 { --offset-x: 20; }
+.egg-2 { --offset-x: 70; }
+.egg-3 { --offset-x: 45; }
+.egg-4 { --offset-x: 10; }
+.egg-5 { --offset-x: 85; }
+.egg-6 { --offset-x: 55; }
+
+
+/* ------------------ GALERIE (Nouveau style avec fond d'écran plein format) ------------------ */
+#galerie {
+    background-image: url('map_background.jpg'); /* NOM DE FICHIER À VÉRIFIER */
+    background-size: cover; /* Couvre toute la section */
+    background-position: center center;
+    background-attachment: fixed; /* Fixe l'image pour un effet de parallaxe */
+    padding: 100px 0; /* Augmente le padding pour mieux voir l'image */
+    color: white; /* Pour que le texte soit lisible sur la carte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombre pour améliorer la lisibilité */
+}
+
+/* Rendre les images placeholder transparentes sur la galerie pour voir le fond */
+#galerie .placeholder-image {
+    background-color: rgba(0, 0, 0, 0.4); 
+    border-color: rgba(255, 255, 255, 0.8);
+    color: white;
+}
+
+/* ------------------ Appels à l'action (CTA) ------------------ */
+
+.cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative; 
+    z-index: 2;
+    justify-content: center; 
+}
+
+/* STYLES DES BOUTONS D'ACHAT AMÉLIORÉS */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background-color 0.15s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 1.05em;
+    box-shadow: 0 5px 0 0 var(--color-dark); /* Ombre forte simulant l'épaisseur */
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 0 var(--color-dark);
+}
+
+.cta-button:active {
+    transform: translateY(3px); /* Effet de pression au clic */
+    box-shadow: 0 2px 0 0 var(--color-dark);
+}
+/* FIN STYLES DES BOUTONS D'ACHAT AMÉLIORÉS */
+
+
+.discover {
+    background-color: white;
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+    box-shadow: 0 5px 0 0 var(--color-dark); /* Adaptation de l'ombre */
+}
+.discover:hover {
+    background-color: var(--color-dark);
+    color: var(--color-primary);
+    border-color: var(--color-dark);
+    box-shadow: 0 7px 0 0 var(--color-dark);
+}
+
+.buy-classic {
+    background-color: var(--color-secondary);
+    color: white;
+    box-shadow: 0 5px 0 0 #A32E2C; /* Ombre plus foncée pour le rouge */
+}
+.buy-classic:hover {
+    background-color: #bb3431; 
+    box-shadow: 0 7px 0 0 #A32E2C;
+}
+
+.buy-deluxe {
+    background-color: var(--color-dark);
+    color: var(--color-primary);
+    box-shadow: 0 5px 0 0 #1a2b3d; /* Ombre plus foncée pour le bleu */
+}
+.buy-deluxe:hover {
+    background-color: #1a2b3d; 
+    color: var(--color-accent-hover);
+    box-shadow: 0 7px 0 0 #1a2b3d;
+}
+
+/* ------------------ Section CTA Bottom IMPACTANTE (Effet Stroboscopique Extrême) ------------------ */
+
+/* Animation de Vibration (pour rendre l'ensemble instable) */
+@keyframes shake-section {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-2px); }
+}
+
+.cta-bottom {
+    padding: 60px 0;
+    background-color: var(--color-secondary);
+    color: white;
+    border-top: 5px solid var(--color-primary);
+    position: relative;
+    overflow: hidden;
+    text-align: center; 
+    
+    animation: flash-bg 0.1s infinite alternate, shake-section 0.05s infinite alternate; /* Vitesse Extrême */
+}
+
+/* Animation de Clignotement du Fond */
+@keyframes flash-bg {
+    0% { background-color: var(--color-secondary); }
+    100% { background-color: #ff0000; } /* Rouge Éclatant */
+}
+.cta-bottom {
+    /* ... (règles précédentes de .cta-bottom) ... */
+    animation: flash-bg 0.1s infinite alternate, shake-section 0.05s infinite alternate; /* Vitesse Extrême */
+}
+
+
+.cta-bottom::before {
+    content: '!!! ACHAT IMMÉDIAT !!!';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 4em;
+    font-weight: 900;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.1;
+    z-index: 1;
+    animation: rotate-light 1s infinite linear; /* Accéléré */
+}
+
+@keyframes rotate-light {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.1; }
+    100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+}
+
+.cta-bottom .section-title {
+    color: white;
+    margin-bottom: 40px;
+    z-index: 2;
+    position: relative; 
+    animation: neon-pulse 0.2s infinite alternate; /* TRÈS RAPIDE */
+}
+
+@keyframes neon-pulse {
+    0% { text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-secondary); }
+    100% { text-shadow: 0 0 5px var(--color-secondary), 0 0 30px var(--color-primary); }
+}
+
+.cta-bottom .section-title::after {
+    background-color: white;
+}
+.cta-bottom .cta-button {
+    box-shadow: none; 
+    animation: cta-flash 0.1s infinite alternate; /* Clignotement des boutons */
+}
+
+@keyframes cta-flash {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(0.98); }
+}
+
+
+/* ------------------ Sections Contenu ------------------ */
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.placeholder-image,
+.image-3d,
+.video-placeholder {
+    background-color: #dbe4e6;
+    color: var(--color-dark);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px dashed var(--color-dark);
+    border-radius: 10px;
+    min-height: 280px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.placeholder-image:hover,
+.image-3d:hover,
+.video-placeholder:hover {
+    background-color: #cfe6ed;
+    transform: translateY(-5px);
+}
+
+.image-3d, .video-placeholder {
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 450px;
+}
+
+.console-photo {
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.console-photo img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.console-photo p {
+    font-size: 1.2em;
+    font-style: italic;
+    color: var(--color-text);
+    padding: 0 20px;
+}
+
+/* ------------------ MERCHANDISING (Styles des produits) ------------------ */
+
+.merch-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.merch-image-slider {
+    position: relative;
+    width: 100%;
+    /* Hauteur fixe pour le slider */
+    padding-top: 100%; /* Ratio 1:1 pour une grille carrée */
+    margin-bottom: 10px;
+    overflow: hidden;
+    perspective: 1000px; /* Ajout d'une perspective 3D pour la transition */
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Assure que l'image est entièrement visible */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* --- DÉFINITION DES ANIMATIONS DE FONDU/TRANSITION (Inch.) --- */
+
+/* Keyframes pour 2 images (Cycle de 4s) */
+@keyframes crossfade-2 {
+    0% { opacity: 0; transform: rotateY(-30deg) scale(0.9); }
+    5% { opacity: 1; transform: rotateY(0deg) scale(1); } /* Début de l'affichage */
+    45% { opacity: 1; transform: rotateY(0deg) scale(1); } /* Reste visible */
+    50% { opacity: 0; transform: rotateY(30deg) scale(0.9); } /* Disparition (Simule l'effet "cube") */
+    100% { opacity: 0; }
+}
+/* Keyframes pour 3 images (Cycle de 6s) */
+@keyframes crossfade-3 {
+    0% { opacity: 0; transform: rotateY(-30deg) scale(0.9); }
+    5% { opacity: 1; transform: rotateY(0deg) scale(1); } 
+    28% { opacity: 1; transform: rotateY(0deg) scale(1); } 
+    33% { opacity: 0; transform: rotateY(30deg) scale(0.9); } 
+    100% { opacity: 0; }
+}
+/* Keyframes pour 4 images (Cycle de 8s) */
+@keyframes crossfade-4 {
+    0% { opacity: 0; transform: rotateY(-30deg) scale(0.9); }
+    5% { opacity: 1; transform: rotateY(0deg) scale(1); }
+    20% { opacity: 1; transform: rotateY(0deg) scale(1); }
+    25% { opacity: 0; transform: rotateY(30deg) scale(0.9); }
+    100% { opacity: 0; }
+}
+
+/* --- APPLICATION DES ANIMATIONS (Inch.) --- */
+.slider-tee-shirt .slider-image:nth-child(1),
+.slider-pull .slider-image:nth-child(1) { animation: crossfade-2 4s infinite 0s; }
+.slider-tee-shirt .slider-image:nth-child(2),
+.slider-pull .slider-image:nth-child(2) { animation: crossfade-2 4s infinite 2s; } 
+
+/* Mugs (4 images) */
+.slider-mug .slider-image:nth-child(1) { animation: crossfade-4 8s infinite 0s; }
+.slider-mug .slider-image:nth-child(2) { animation: crossfade-4 8s infinite 2s; }
+.slider-mug .slider-image:nth-child(3) { animation: crossfade-4 8s infinite 4s; }
+.slider-mug .slider-image:nth-child(4) { animation: crossfade-4 8s infinite 6s; }
+
+/* Posters (3 images - Nouveau cycle de 6s) */
+.slider-poster .slider-image:nth-child(1) { animation: crossfade-3 6s infinite 0s; }
+.slider-poster .slider-image:nth-child(2) { animation: crossfade-3 6s infinite 2s; }
+.slider-poster .slider-image:nth-child(3) { animation: crossfade-3 6s infinite 4s; }
+
+
+.merch-info {
+    text-align: center;
+}
+.merch-info h4 {
+    color: var(--color-dark);
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.merch-info .price {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--color-secondary);
+    display: flex; /* Utilisation de flex pour aligner les prix */
+    justify-content: center; /* Centre le contenu */
+    align-items: baseline;
+    gap: 10px; /* Espace entre les prix */
+}
+
+/* Style pour l'ancien prix rayé */
+.merch-info .old-price {
+    font-size: 0.8em;
+    color: #999;
+    font-weight: 400;
+    text-decoration: line-through; /* Pour rayer l'ancien prix */
+}
+
+
+/* ------------------ Équipe (Team) et Footer (Inch.) ------------------ */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background-color: white;
+    padding: 20px; 
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: left; 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-top: 4px solid var(--color-primary); 
+    
+    display: flex; 
+    align-items: center;
+    gap: 15px; 
+}
+
+.team-member:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-photo {
+    width: 60px; 
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 3px solid var(--color-secondary);
+    flex-shrink: 0; 
+}
+
+.member-details {
+    flex-grow: 1; 
+}
+
+.team-member h4 {
+    color: var(--color-secondary);
+    font-size: 1.5em; 
+    margin-bottom: 3px; 
+    font-weight: 700;
+}
+
+.team-member p {
+    font-size: 0.9em; 
+    margin-bottom: 3px;
+    color: #555;
+}
+
+.team-member strong {
+    color: var(--color-dark);
+}
+
+.main-footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+}
+
+/* ------------------ RESPONSIVE DESIGN (Media Queries) ------------------ */
+
+@media (max-width: 992px) {
+    /* ... (règles inchangées) ... */
+    .hero-section .container { flex-direction: column-reverse; }
+    .hero-content, .hero-image { flex-basis: 100%; padding-right: 0; text-align: center; }
+    .hero-image { margin-bottom: 40px; }
+    .hero-section h2 { font-size: 2.8em; }
+    .team-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .animated-pixel-char { width: 60px; opacity: 0.6; }
+    .animated-egg { width: 20px; height: 20px; }
+}
+
+@media (max-width: 768px) {
+    /* ... (règles inchangées) ... */
+    .hero-section { padding: 80px 0; }
+    .hero-section h2 { font-size: 2.2em; }
+    .animated-pixel-char { width: 50px; opacity: 0.5; }
+    .char-fox { width: 80px; }
+    .cta-bottom::before { font-size: 2.5em; } 
+    .team-member { padding: 15px; }
+    .team-photo { width: 50px; height: 50px; }
+    .merch-info .price {
+        flex-direction: column; /* Empile les prix sur mobile */
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* ... (règles inchangées) ... */
+    .main-header h1 { font-size: 1.6em; }
+    .hero-section h2 { font-size: 1.8em; }
+    .animated-pixel-char { width: 40px; opacity: 0.4; }
+    .char-fox { width: 60px; }
+    .animated-egg { width: 15px; height: 15px; }
+    .cta-bottom::before { font-size: 1.5em; }
+    .team-member { flex-direction: column; text-align: center; }
+    .team-photo { margin-bottom: 10px; }
+    .team-member h4 { margin-top: 5px; }
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Poulet - Le Jeu Vidéo Officiel</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <!-- NOUVEAU LOGO STYLISÉ -->
+            <h1 class="logo-title">
+                <span class="logo-icon">🐔</span> SUPER POULET <span class="logo-subtitle">Classique</span>
+            </h1>
+            <nav>
+                <!-- NOUVEL ORDRE DES ONGLETS -->
+                <a href="#teaser">Teaser Vidéo</a>
+                <a href="#galerie">Galerie</a>
+                <a href="#console">Console Réelle</a>
+                <a href="#boitier">Boitier</a> <!-- Libellé modifié -->
+                <a href="#figurines">Figurines</a>
+                <a href="#merche">Merchandising</a>
+                <a href="#equipe">L'Équipe</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h2>L'aventure vous attend. Un poulet. Une armure. Des défis !</h2>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button discover">DÉCOUVRIR LE JEU</a>
+                    <a href="#" class="cta-button buy-classic">Acheter Classique (4,99€)</a>
+                    <a href="#" class="cta-button buy-deluxe">Acheter Deluxe + Skins (7,99€)</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src=".\images\super_poulet_3d.jpg" alt="Personnage principal Super Poulet">
+            </div>
+        </div>
+        
+        <!-- Les 3 skins restent ici pour être dans la Hero Section -->
+        <img src=".\images\super_poulet_pixel_1.png" alt="Personnage Poulet Classique" class="animated-pixel-char char-1">
+        <img src=".\images\super_poulet_pixel_2.png" alt="Personnage Poussin" class="animated-pixel-char char-2">
+        <img src=".\images\super_poulet_pixel_3.png" alt="Personnage Chevalier" class="animated-pixel-char char-3">
+    </section>
+
+    <!-- !!! LE RENARD ET LES OEUFS SONT PLACÉS ICI POUR SE DÉPLACER PARTOUT !!! -->
+    <img src=".\images\renard_poursuivant.png" alt="Le Renard Poursuivant" class="animated-pixel-char char-fox">
+    
+    <!-- SIX OEUFS POINTANT VERS LA MÊME IMAGE -->
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #1" class="animated-egg egg-1">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #2" class="animated-egg egg-2">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #3" class="animated-egg egg-3">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #4" class="animated-egg egg-4">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #5" class="animated-egg egg-5">
+    <img src=".\images\oeuf_super_poulet.png" alt="Oeuf #6" class="animated-egg egg-6">
+    <!-- !!! FIN DU DÉPLACEMENT !!! -->
+
+    <main class="container">
+        
+        <!-- 5) Teaser vidéo (DÉPLACÉE EN PREMIER) -->
+        <section id="teaser" class="content-section grey-bg">
+            <h3 class="section-title">Teaser Vidéo Officiel</h3>
+            <div class="video-placeholder placeholder-image">
+                TEASER VIDÉO À VENIR
+            </div>
+        </section>
+
+        <!-- 1) Galerie d'images du projet et du gameplay (DÉPLACÉE EN SECOND) -->
+        <section id="galerie" class="content-section">
+            <h3 class="section-title">Galerie du Jeu et du Gameplay</h3>
+            <div class="image-grid">
+                <div class="placeholder-image">À VENIR</div>
+                <div class="placeholder-image">À VENIR</div>
+                <div class="placeholder-image">À VENIR</div>
+                <div class="placeholder-image">À VENIR</div>
+            </div>
+        </section>
+
+        <!-- 2) Des photos de la console de jeu réel -->
+        <section id="console" class="content-section grey-bg">
+            <h3 class="section-title">Compatible avec votre console de jeu</h3>
+            <div class="console-photo">
+                <img src=".\images\snes_controller.jpg" alt="Manette Super Nintendo">
+                <p>Retrouvez les sensations classiques de l'âge d'or du jeu vidéo.</p>
+            </div>
+        </section>
+
+        <!-- 3) Visuel 3D du boitier -->
+        <section id="boitier" class="content-section">
+            <h3 class="section-title">Boitier</h3> <!-- Libellé modifié -->
+            <div class="image-3d placeholder-image">
+                VISUEL 3D DU BOÎTIER À VENIR
+            </div>
+        </section>
+        
+        <!-- NOUVELLE SECTION: FIGURINES -->
+        <section id="figurines" class="content-section grey-bg">
+            <h3 class="section-title">Figurines à peindre</h3> <!-- Libellé modifié -->
+            <div class="image-grid">
+                <div class="placeholder-image">FIGURINE A VENIR</div>
+                <div class="placeholder-image">STATUETTE A VENIR</div>
+                <div class="placeholder-image">FIGURINE A VENIR</div>
+            </div>
+        </section>
+        
+        <!-- NOUVELLE SECTION: MERCHANDISING (Avec contenu dynamique) -->
+        <section id="merche" class="content-section">
+            <h3 class="section-title">Merchandising Officiel</h3>
+            <div class="image-grid">
+
+                <!-- FENÊTRE 1: TEE-SHIRTS -->
+                <div class="merch-item">
+                    <div class="merch-image-slider slider-tee-shirt">
+                        <img src=".\images\teeshirt.png" alt="Tee-shirt modèle 1" class="slider-image">
+                        <img src=".\images\teeshirt2.png" alt="Tee-shirt modèle 2" class="slider-image">
+                    </div>
+                    <div class="merch-info">
+                        <h4>Tee-Shirts Exclusifs</h4>
+                        <p class="price">19,99€</p>
+                    </div>
+                </div>
+
+                <!-- FENÊTRE 2: MUGS (PRIX PROMOTIONNEL) -->
+                <div class="merch-item">
+                    <div class="merch-image-slider slider-mug">
+                        <img src=".\images\mugoeuf.png" alt="Mug Oeuf" class="slider-image">
+                        <img src=".\images\mugpoussin.png" alt="Mug Poussin" class="slider-image">
+                        <img src=".\images\mugpoule.png" alt="Mug Poule" class="slider-image">
+                        <img src=".\images\mugrenard.png" alt="Mug Renard" class="slider-image">
+                    </div>
+                    <div class="merch-info">
+                        <h4>Mugs Gaming</h4>
+                        <p class="price"><del class="old-price">9,99€</del> 6,99€</p>
+                    </div>
+                </div>
+
+                <!-- FENÊTRE 3: PULLS -->
+                <div class="merch-item">
+                    <div class="merch-image-slider slider-pull">
+                        <img src=".\images\colfemme.png" alt="Pull modèle femme 1" class="slider-image">
+                        <img src=".\images\colfemme2.png" alt="Pull modèle femme 2" class="slider-image">
+                    </div>
+                    <div class="merch-info">
+                        <h4>Pulls à Col Roulé</h4>
+                        <p class="price">39,99€</p>
+                    </div>
+                </div>
+
+                <!-- FENÊTRE 4: POSTERS (Ajout de poster3.png) -->
+                <div class="merch-item">
+                    <div class="merch-image-slider slider-poster">
+                        <img src=".\images\poster.png" alt="Poster de jeu 1" class="slider-image">
+                        <img src=".\images\poster2.png" alt="Poster de jeu 2" class="slider-image">
+                        <img src=".\images\poster3.png" alt="Poster de jeu 3" class="slider-image">
+                    </div>
+                    <div class="merch-info">
+                        <h4>Posters Collector</h4>
+                        <p class="price">4,99€</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4) Biographie de l’équipe (classée par ordre alphabétique) -->
+        <section id="equipe" class="content-section team-section">
+            <h3 class="section-title">L'Équipe de Développement</h3>
+            <div class="team-grid">
+                <!-- Membres classés par ordre alphabétique -->
+                <div class="team-member">
+                    <img src=".\images\photo_lilou.png" alt="Photo de Lilou Berger" class="team-photo">
+                    <div class="member-details">
+                        <h4>Berger Lilou</h4>
+                        <p><strong>23 ans, Tours</strong></p>
+                        <p>Spécialiste site web promotionnel</p> <!-- CORRECTION ICI -->
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src=".\images\photo_mathis.png" alt="Photo de Mathis Chauvin" class="team-photo">
+                    <div class="member-details">
+                        <h4>Chauvin Mathis</h4>
+                        <p><strong>22 ans, Angers</strong></p>
+                        <p>Spécialiste hardware</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src=".\images\photo_martin.png" alt="Photo de Martin Esnault" class="team-photo">
+                    <div class="member-details">
+                        <h4>Esnault Martin</h4>
+                        <p><strong>22 ans, Angers</strong></p>
+                        <p>Monteur et production vidéo</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src=".\images\photo_teo.png" alt="Photo de Téo Longépé" class="team-photo">
+                    <div class="member-details">
+                        <h4>Longépé Téo</h4>
+                        <p><strong>23 ans, Tours</strong></p>
+                        <p>Spécialisé en conception 3D</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src=".\images\photo_maxime.png" alt="Photo de Maxime Moraine" class="team-photo">
+                    <div class="member-details">
+                        <h4>Moraine Maxime</h4>
+                        <p><strong>22 ans, Angers</strong></p>
+                        <p>Spécialiste compatibilité hardware/software</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src=".\images\photo_tony.png" alt="Photo de Tony Roncin" class="team-photo">
+                    <div class="member-details">
+                        <h4>Roncin Tony</h4>
+                        <p><strong>22 ans, Tours</strong></p>
+                        <p>Développeur web</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action final (Rappel) -->
+        <section class="cta-bottom">
+            <h3 class="section-title">Ne manquez pas l'occasion !</h3>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button buy-classic">Acheter Version Classique (4,99€)</a>
+                <a href="#" class="cta-button buy-deluxe">Acheter Version Deluxe + Skins (7,99€)</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Super Poulet. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
